@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/28 19:52:58 by nmougino          #+#    #+#             */
-/*   Updated: 2016/08/28 19:55:26 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/08/29 00:01:41 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int		main(void)
 {
-	ft_list_dir(".");
+	ft_inspect_file("README.md");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:27:59 by nmougino          #+#    #+#             */
-/*   Updated: 2016/08/31 02:31:00 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/08/31 18:43:09 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,24 @@ static int	parser_add_param(t_ls_meta *meta, char *arg)
 	{
 		if (ft_strnloc(arg[i], arg, ft_strlen(arg)) < 0)
 			return (error_w_param(arg[i]));
-		meta->param |= 1 << (ft_strnloc(arg[i], "Ralrt", ft_strlen(arg)));
+		meta->param |= 1 << ft_strnloc(arg[i], "trlaR", 5);
 	}
 	return (1);
+}
+
+static void	parser_init_target(t_ls_meta *meta, char **av, int i, int ac)
+{
+	int		c;
+
+	c = 0;
+	meta->tarnb = ac - i;
+	meta->target = (char **)malloc(sizeof(char *) * ac - i);
+	while (i < ac)
+	{
+		meta->target[c] = ft_strdup(av[i]);
+		++c;
+		++i;
+	}
 }
 
 int		parser(int ac, char **av, t_ls_meta *meta)
@@ -64,9 +79,14 @@ int		parser(int ac, char **av, t_ls_meta *meta)
 int		main(int ac, char **av)
 {
 	t_ls_meta	meta;
+	int			i = 0;
 
 	ft_printf("rendu parser: %d\n", parser(ac, av, &meta));
 	ft_printf("parametres : %b\n", meta.param);
-	ft_printf("filename : \"%s\"\n", *(meta.target));
+	while (i < meta.tarnb)
+	{
+		++i;
+		ft_printf("filename %d : \"%s\"\n", i, meta.target[i - 1]);
+	}
 	return (0);
 }

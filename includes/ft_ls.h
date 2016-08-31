@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/08/31 02:25:55 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/08/31 18:41:09 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct	s_ls_meta
 {
 	int			tarnb;
 	char		**target;
-	// -- Ralrt
+	//			-- Ralrt
 	char		param;
 }				t_ls_meta;
 

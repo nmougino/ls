@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.h                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/01 17:25:56 by nmougino         ###   ########.fr       */
+/*   Created: 2016/09/01 17:25:05 by nmougino          #+#    #+#             */
+/*   Updated: 2016/09/01 17:25:44 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS
-# define FT_LS
+#include "ft_ls.h"
 
-# include "libft.h"
-
-typedef struct	s_ls_meta
+int		main(int ac, char **av)
 {
-	int			tarnb;
-	char		**target;
-	//			-- Ralrt
-	char		param;
-}				t_ls_meta;
+	t_ls_meta	meta;
+	int			i = 0;
 
-int		error_w_param(char c);
-int		parser(int ac, char **av, t_ls_meta *meta);
-
-#endif
+	ft_printf("rendu parser: %d\n", parser(ac, av, &meta));
+	ft_printf("parametres : %b\n", meta.param);
+	while (i < meta.tarnb)
+	{
+		++i;
+		ft_printf("filename %d : \"%s\"\n", i, meta.target[i - 1]);
+	}
+	return (0);
+}

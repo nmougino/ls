@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:27:59 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/01 17:25:13 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/01 19:12:39 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ static void	parser_init_empty(t_ls_meta *meta)
 {
 	meta->tarnb = 1;
 	meta->target = (char **)malloc(sizeof(char *));
-	*(meta->target) = ".";
+	(meta->target)[0] = ft_strnew(2);
+	(meta->target)[0][0] = '.';
+	(meta->target)[0][1] = 0;
 }
 
 static int	parser_add_param(t_ls_meta *meta, char *arg)
@@ -66,7 +68,7 @@ int		parser(int ac, char **av, t_ls_meta *meta)
 		while (++i < ac && av[i][0] == '-')
 		{
 			if (parser_add_param(meta, av[i]) < 0)
-				return (-1);
+				return (0);
 		}
 		if (i >= ac)
 			parser_init_empty(meta);

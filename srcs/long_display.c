@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 17:33:39 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/01 18:15:46 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/01 19:01:34 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	long_display(fichier)
 
 format l :
 
-     1     |2 |   3    ||    4     ||  5 |     6      | 7
+>    1     |2 |   3    ||    4     ||  5 |     6      | 7
 drwxr-xr-x  10 nmougino  2015_paris  4096 Aug 24 13:51 nfs
 dr-xr-xr-x@  2 root      wheel         68 Oct  6  2015 net
 

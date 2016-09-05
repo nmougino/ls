@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 17:25:05 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/05 21:36:29 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/05 22:08:28 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int			true_main(int ac, char **av) // pas de gestion d'erreur
 	while (i < meta.tarnb)
 	{
 		if (meta.param & (1 << 4))
-		 	ls_rec();
+		 	ls_rec(&meta, meta.target[i]);
 		else
-			ls_std();
+			ls_std(&meta, meta.target[i]);
 		++i;
 	}
 	free_meta(&meta);

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/02 00:18:50 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/06 04:50:13 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/06 05:30:06 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ t_ls_file	*ls_list_dir(char const *path, t_ls_meta *meta)
 	if (!(dirp = opendir(path)))
 		return (NULL);
 	while ((dp = readdir(dirp)))
-		ls_add_file(path, dp, &file, meta);
+	{
+		if (!(dp->d_name[0] == '.' && !(meta->param & (1 << 3))))
+			ls_add_file(path, dp, &file, meta);
+	}
 	(void)closedir(dirp);
 	return (file);
 }

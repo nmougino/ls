@@ -6,11 +6,16 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:27:59 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/01 19:12:39 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/06 03:06:44 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+static void	parser_init_sort(t_ls_meta *meta)
+{
+	meta->sortfun = &sort_alpha;
+}
 
 static void	parser_init_empty(t_ls_meta *meta)
 {
@@ -19,6 +24,7 @@ static void	parser_init_empty(t_ls_meta *meta)
 	(meta->target)[0] = ft_strnew(2);
 	(meta->target)[0][0] = '.';
 	(meta->target)[0][1] = 0;
+	parser_init_sort(meta);
 }
 
 static int	parser_add_param(t_ls_meta *meta, char *arg)
@@ -74,6 +80,7 @@ int		parser(int ac, char **av, t_ls_meta *meta)
 			parser_init_empty(meta);
 		else
 			parser_init_target(meta, av, i, ac);
+		parser_init_sort(meta);
 	}
 	return (1);
 }

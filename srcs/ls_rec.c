@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ls_std.c                                           :+:      :+:    :+:   */
+/*   ls_rec.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/05 21:18:51 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/06 04:49:24 by nmougino         ###   ########.fr       */
+/*   Created: 2016/09/06 01:28:58 by nmougino          #+#    #+#             */
+/*   Updated: 2016/09/06 01:29:28 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	ls_std(t_ls_meta *meta, const char *path)
+void	ls_rec(t_ls_meta *meta, const char *path)
 {
 	t_ls_file	*list;
 

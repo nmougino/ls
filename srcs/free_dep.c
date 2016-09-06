@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 21:36:37 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/05 21:41:13 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/06 04:47:28 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@ void	free_meta(t_ls_meta *meta)
 {
 	if (meta->tarnb)
 		while ((meta->tarnb)--)
-		{
-			free(meta->target[meta->tarnb]->name)
 			free(meta->target[meta->tarnb]);
-		}
 	free(meta->target);
 }
 
@@ -29,7 +26,7 @@ void	free_file(t_ls_file *fst)
 
 	while (fst)
 	{
-		nxt = fst->nxt;
+		nxt = fst->next;
 		free(fst->name);
 		free(fst);
 		fst = nxt;

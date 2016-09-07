@@ -6,44 +6,31 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/02 00:18:50 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/06 05:30:06 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/07 21:54:27 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void		create_path(char *ptab, char const *path, char *name)
-{
-	register int	i;
-	register int	j;
-
-	i = 0;
-	j = 0;
-	while(path[i])
-	{
-		ptab[i] = path[i];
-		++i;
-	}
-	ptab[i] = '/';
-	++i;
-	while(name[i])
-	{
-		ptab[i] = name[j];
-		++i;
-		++j;
-	}
-}
-
 t_ls_file	*ls_new_file(char const *path, t_dirent *dp)
 {
 	t_ls_file	*new;
-	char		ptab[ft_strlen(path) + dp->d_namlen + 2];
+	char		*tpath;
+	const char	*tab[3];
 
-	new = (t_ls_file*)ft_memalloc(sizeof(t_ls_file));
-	new->name = ft_strdup(dp->d_name);
-	create_path(ptab, path, new->name);
-	lstat(ptab, &(new->filestat));
-	new->next = NULL;
+	new = (t_ls_file*)malloc(sizeof(t_ls_file));
+	tab[0] = path;
+	tab[1] = dp->d_name;
+	tab[2] = NULL;
+	tpath = ft_strglu(tab, '/');
+	if (new && (lstat(tpath, &new->filestat) >= 0))
+	{
+		new->next = NULL;
+		ft_memcpy(&new->dp, dp, sizeof(t_dirent));
+		new->path = tpath;
+	}
+	else
+		free(tpath);
 	return (new);
 }
 

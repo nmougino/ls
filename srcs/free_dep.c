@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/05 21:36:37 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/06 04:47:28 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/07 21:46:22 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	free_file(t_ls_file *fst)
 	while (fst)
 	{
 		nxt = fst->next;
-		free(fst->name);
+		free(fst->path);
 		free(fst);
 		fst = nxt;
 	}

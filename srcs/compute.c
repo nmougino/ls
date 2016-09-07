@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 06:43:06 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/06 06:55:28 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/07 21:10:03 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	com_name(t_ls_file *file)
 	ans = 0;
 	while (file)
 	{
-		tmp = ft_strlen(file->name);
+		tmp = ft_strlen(file->dp.d_name);
 		if (ans < tmp)
 			ans = tmp;
 		file = file->next;

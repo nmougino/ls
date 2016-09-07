@@ -6,13 +6,15 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/07 23:21:20 by nmougino          #+#    #+#              #
-#    Updated: 2016/09/06 06:47:11 by nmougino         ###   ########.fr        #
+#    Updated: 2016/09/07 21:17:31 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #	Compilator - clang est plus sur que gcc
 CC =		clang
 CFLAGS =	-Wall -Wextra -Werror
+#ADDFLAGS =	-fsanitize=address
+ADDFLAGS =
 
 #	Binary
 NAME =		ft_ls
@@ -26,8 +28,7 @@ INCDIR =	includes
 OBJDIR =	objs
 
 #	Liste des sources
-SRC =		compute.c \
-			display.c \
+SRC =		display.c \
 			error.c \
 			free_dep.c \
 			list_dir.c \
@@ -87,7 +88,7 @@ libcomp:
 	make -C lib$(LIB)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	$(CC) $(CFLAGS)	-c -o $@ $^ -I $(INCDIR)
+	$(CC) $(CFLAGS)	$(ADDFLAGS) -c -o $@ $^ -I $(INCDIR)
 
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)
@@ -95,7 +96,7 @@ $(OBJDIR):
 
 $(NAME): $(OBJP)
 	@echo "$(GRA)$(CYA)@ ++ $@ compilation$(DEF)"
-	@$(CC) $(CFLAGS)	-o $@ $^ -I $(INCDIR) -L lib$(LIB) -l$(LIB)
+	@$(CC) $(CFLAGS) $(ADDFLAGS)	-o $@ $^ -I $(INCDIR) -L lib$(LIB) -l$(LIB)
 
 #	MrProper's legacy
 clean:

@@ -1,10 +1,7 @@
 # ls
 Projet pedagogique
 
-Developement de -l :
-Le format -l necessite de nombreux acces et recherches invasives par fichier.
-Cette option servira de point d'ancrage a l'elaboration
-des structures et des methodes de recherches.
+Rappel :: il n'y a pas de gestion d'erreur d'opendir
 
 Idee de bonus:
 -F      Display a slash (`/') immediately after each pathname that is a

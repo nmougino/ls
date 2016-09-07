@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/07 22:19:20 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/07 22:48:15 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void					ls_rec(t_ls_meta *meta, const char *path);
 
 int						sort_alpha(t_ls_file *a, t_ls_file *b);
 
+int						usefull(const char *path);
 char					*add_path(const char *path, const char *new);
 
 int						com_name(t_ls_file *file);

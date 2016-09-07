@@ -6,23 +6,41 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/02 00:18:50 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/07 21:54:27 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/07 22:18:23 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
+//t_ls_file	*ls_new_file(char const *path, t_dirent *dp)
+//{
+//	t_ls_file	*new;
+//	char		*tpath;
+//	const char	*tab[3];
+//
+//	new = (t_ls_file*)malloc(sizeof(t_ls_file));
+//	tab[0] = path;
+//	tab[1] = dp->d_name;
+//	tab[2] = NULL;
+//	tpath = ft_strglu(tab, '/');
+//	if (new && (lstat(tpath, &new->filestat) >= 0))
+//	{
+//		new->next = NULL;
+//		ft_memcpy(&new->dp, dp, sizeof(t_dirent));
+//		new->path = tpath;
+//	}
+//	else
+//		free(tpath);
+//	return (new);
+//}
+
 t_ls_file	*ls_new_file(char const *path, t_dirent *dp)
 {
 	t_ls_file	*new;
 	char		*tpath;
-	const char	*tab[3];
 
 	new = (t_ls_file*)malloc(sizeof(t_ls_file));
-	tab[0] = path;
-	tab[1] = dp->d_name;
-	tab[2] = NULL;
-	tpath = ft_strglu(tab, '/');
+	tpath = add_path(path, dp->d_name);
 	if (new && (lstat(tpath, &new->filestat) >= 0))
 	{
 		new->next = NULL;

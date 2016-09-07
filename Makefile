@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/07 23:21:20 by nmougino          #+#    #+#              #
-#    Updated: 2016/09/07 21:17:31 by nmougino         ###   ########.fr        #
+#    Updated: 2016/09/07 22:18:14 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC =		display.c \
 			ls_std.c \
 			main.c \
 			parser.c \
+			path_dep.c \
 			sort_fun.c
 LIB =		ft
 OBJ =		$(SRC:.c=.o)

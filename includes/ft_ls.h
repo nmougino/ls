@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/07 22:48:15 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/08 16:36:54 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include <dirent.h>
+# include <time.h>
 # include <sys/stat.h>
 
 typedef struct dirent	t_dirent;
@@ -53,6 +54,9 @@ void					ls_std(t_ls_meta *meta, const char *path);
 void					ls_rec(t_ls_meta *meta, const char *path);
 
 int						sort_alpha(t_ls_file *a, t_ls_file *b);
+int						sort_time(t_ls_file *a, t_ls_file *b);
+int						sort_rev_alpha(t_ls_file *a, t_ls_file *b);
+int						sort_rev_time(t_ls_file *a, t_ls_file *b);
 
 int						usefull(const char *path);
 char					*add_path(const char *path, const char *new);

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:27:59 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/06 03:06:44 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/08 16:33:27 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,20 @@
 
 static void	parser_init_sort(t_ls_meta *meta)
 {
-	meta->sortfun = &sort_alpha;
+	if (meta->param & (1 << 1))
+	{
+		if (meta->param & 1)
+			meta->sortfun = &sort_rev_time;
+		else
+			meta->sortfun = &sort_rev_alpha;
+	}
+	else
+	{
+		if (meta->param & 1)
+			meta->sortfun = &sort_time;
+		else
+			meta->sortfun = &sort_alpha;
+	}
 }
 
 static void	parser_init_empty(t_ls_meta *meta)

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 01:28:58 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/07 23:00:44 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/08 18:15:13 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void		ls_rec(t_ls_meta *meta, const char *path)
 		}
 		cur = cur->next;
 	}
-	free(list);
+	free_file(list);
 }

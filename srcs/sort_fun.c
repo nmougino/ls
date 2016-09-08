@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 02:47:06 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/08 17:17:50 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/09 01:29:05 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,19 @@ int	sort_alpha(t_ls_file *a, t_ls_file *b)
 
 int	sort_time(t_ls_file *a, t_ls_file *b)
 {
-	register double	diff;
+	long	ta;
+	long	tb;
 
-	if (!a || !b)
-		return (0);
-	diff = difftime(a->filestat.st_mtimespec.tv_sec, b->filestat.st_mtimespec.tv_sec);
-	if (diff > 0 || (!diff && sort_alpha(a, b)))
-		return (1);
-	else
-		return (0);
+	ta = a->filestat.st_mtime;
+	tb = b->filestat.st_mtime;
+	if (ta == tb)
+	{
+		ta = a->filestat.st_mtimespec.tv_nsec;
+		tb = b->filestat.st_mtimespec.tv_nsec;
+		if (ta == tb)
+			return (sort_alpha(a, b));
+	}
+	return ((ta - tb) > 0 ? 1 : 0);
 }
 
 int	sort_rev_alpha(t_ls_file *a, t_ls_file *b)

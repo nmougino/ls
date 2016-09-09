@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/08 16:36:54 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/09 03:38:12 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <dirent.h>
 # include <time.h>
 # include <sys/stat.h>
+# include <errno.h>
 
 typedef struct dirent	t_dirent;
 
@@ -43,7 +44,7 @@ int						parser(int ac, char **av, t_ls_meta *meta);
 void					disp_mode(mode_t mode);
 void					disp_mode_type(mode_t mode);
 
-void					display(t_ls_file *file);
+void					display(t_ls_file *file, t_ls_meta *meta);
 
 void					free_meta(t_ls_meta *meta);
 void					free_file(t_ls_file *fst);

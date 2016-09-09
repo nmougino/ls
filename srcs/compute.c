@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 06:43:06 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/07 21:10:03 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/09 06:00:02 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	com_name(t_ls_file *file)
 {
-	register int	ans;
-	register int	tmp;
+	int	ans;
+	int	tmp;
 
 	ans = 0;
 	while (file)
@@ -27,5 +27,55 @@ int	com_name(t_ls_file *file)
 	}
 	while (ans % 8)
 		++ans;
+	return (ans);
+}
+
+int	com_hl(t_ls_file *file)
+{
+	int	ans;
+
+	ans = 0;
+	while (file)
+	{
+		if (ans < ft_nbrlen(file->filestat.st_nlink))
+			ans = ft_nbrlen(file->filestat.st_nlink);
+		file = file->next;
+	}
+	if (ans < 2)
+		return (2);
+	return (ans);
+}
+
+int	com_owner(t_ls_file *file)
+{
+	size_t			ans;
+	struct passwd	*tmp;
+
+	ans = 0;
+	while (file)
+	{
+		if ((tmp = getpwuid(file->filestat.st_uid)))
+			ans = (ans < ft_strlen(tmp->pw_name)) ? ft_strlen(tmp->pw_name) : ans;
+		else
+			ans = (ans < (size_t)ft_nbrlen(file->filestat.st_uid)) ? ft_nbrlen(file->filestat.st_uid) : ans;
+		file = file->next;
+	}
+	return (ans);
+}
+
+int	com_group(t_ls_file *file)
+{
+	size_t			ans;
+	struct group	*tmp;
+
+	ans = 0;
+	while (file)
+	{
+		if ((tmp = getgrgid(file->filestat.st_gid)))
+			ans = (ans < ft_strlen(tmp->gr_name)) ? ft_strlen(tmp->gr_name) : ans;
+		else
+			ans = (ans < (size_t)ft_nbrlen(file->filestat.st_gid)) ? ft_nbrlen(file->filestat.st_gid) : ans;
+		file = file->next;
+	}
 	return (ans);
 }

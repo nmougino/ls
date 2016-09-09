@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/07 23:21:20 by nmougino          #+#    #+#              #
-#    Updated: 2016/09/07 22:18:14 by nmougino         ###   ########.fr        #
+#    Updated: 2016/09/09 05:09:26 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ INCDIR =	includes
 OBJDIR =	objs
 
 #	Liste des sources
-SRC =		display.c \
+SRC =		compute.c \
+			display.c \
 			error.c \
 			free_dep.c \
 			list_dir.c \
@@ -37,6 +38,7 @@ SRC =		display.c \
 			main.c \
 			parser.c \
 			path_dep.c \
+			disp_long.c \
 			sort_fun.c
 LIB =		ft
 OBJ =		$(SRC:.c=.o)

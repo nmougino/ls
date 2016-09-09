@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 03:38:12 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/09 06:00:23 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 # include <time.h>
 # include <sys/stat.h>
 # include <errno.h>
+# include <sys/types.h>
+# include <pwd.h>
+# include <uuid/uuid.h>
+# include <grp.h>
 
 typedef struct dirent	t_dirent;
 
@@ -41,10 +45,9 @@ typedef struct			s_ls_meta
 int						error_w_param(char c);
 int						parser(int ac, char **av, t_ls_meta *meta);
 
-void					disp_mode(mode_t mode);
-void					disp_mode_type(mode_t mode);
-
 void					display(t_ls_file *file, t_ls_meta *meta);
+
+void					long_display(t_ls_file *file);
 
 void					free_meta(t_ls_meta *meta);
 void					free_file(t_ls_file *fst);
@@ -63,5 +66,8 @@ int						usefull(const char *path);
 char					*add_path(const char *path, const char *new);
 
 int						com_name(t_ls_file *file);
+int						com_hl(t_ls_file *file);
+int						com_owner(t_ls_file *file);
+int						com_group(t_ls_file *file);
 
 #endif

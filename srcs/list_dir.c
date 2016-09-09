@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/02 00:18:50 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/07 22:36:37 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/09 11:04:38 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ static t_ls_file	*ls_new_file(char const *path, t_dirent *dp)
 	return (new);
 }
 
-static void			ls_add_file(char const *path, t_dirent *dp, t_ls_file **file, t_ls_meta *meta)
+static void			ls_add_file(char const *path, t_dirent *dp,
+		t_ls_file **file, t_ls_meta *meta)
 {
 	t_ls_file *new;
 	t_ls_file *cur;

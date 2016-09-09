@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:27:59 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/08 16:33:27 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/09 11:05:18 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	parser_init_target(t_ls_meta *meta, char **av, int i, int ac)
 	}
 }
 
-int		parser(int ac, char **av, t_ls_meta *meta)
+int			parser(int ac, char **av, t_ls_meta *meta)
 {
 	register int	i;
 

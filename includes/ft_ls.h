@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 09:29:14 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/09 11:20:49 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,16 @@ int						error_w_param(char c);
 int						parser(int ac, char **av, t_ls_meta *meta);
 
 void					display(t_ls_file *file, t_ls_meta *meta);
+
+void					disp_mode_type(mode_t mode);
+void					disp_mode_owner(mode_t mode);
+void					disp_mode_group(mode_t mode);
+void					disp_mode_other(mode_t mode);
+
+char					*disp_owner(uid_t uid);
+char					*disp_group(gid_t gid);
+char					*disp_time(time_t tmp);
+void					disp_link_target(char *path);
 
 void					long_display(t_ls_file *file);
 

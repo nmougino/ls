@@ -6,27 +6,27 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 11:20:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 11:20:23 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/09 20:48:11 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	*disp_owner(uid_t uid)
+char	*disp_owner(uid_t uid, char param)
 {
 	struct passwd	*tmp;
 
-	if (!(tmp = getpwuid(uid)))
+	if (param & (1 << 5) || !(tmp = getpwuid(uid)))
 		return (ft_itoa(uid));
 	else
 		return (ft_strdup(tmp->pw_name));
 }
 
-char	*disp_group(gid_t gid)
+char	*disp_group(gid_t gid, char param)
 {
 	struct group	*tmp;
 
-	if (!(tmp = getgrgid(gid)))
+	if (param & (1 << 5) || !(tmp = getgrgid(gid)))
 		return (ft_itoa(gid));
 	else
 		return (ft_strdup(tmp->gr_name));

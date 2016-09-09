@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:27:59 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 11:05:18 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/09 20:46:34 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ static int	parser_add_param(t_ls_meta *meta, char *arg)
 		return (0);
 	while (arg[++i])
 	{
-		if (ft_strnloc(arg[i], "trlaR", 5) < 0)
+		if (ft_strnloc(arg[i], "trlaRn", 6) < 0)
 			return (error_w_param(arg[i]));
-		meta->param |= 1 << ft_strnloc(arg[i], "trlaR", 5);
+		meta->param |= 1 << ft_strnloc(arg[i], "trlaRn", 6);
 	}
 	return (1);
 }

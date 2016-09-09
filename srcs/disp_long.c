@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 04:08:02 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 09:22:48 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/09 10:47:35 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,6 @@ char	*disp_group(gid_t gid)
 		return (ft_strdup(tmp->gr_name));
 }
 
-#include <stdio.h>
-
 char	*disp_time(time_t tmp)
 {
 	double	timediff;
@@ -110,8 +108,31 @@ char	*disp_time(time_t tmp)
 		return (ctime(&tmp) + 19);
 	return (ctime(&tmp) + 11);
 }
-//Mon Nov 16 15:51:07 2015
 
+void	disp_link_target(char *path)
+{
+	char buf[1024];
+
+	ft_bzero(buf, 1024);
+	readlink(path, buf, 1024);
+	ft_printf(" -> %s", buf);
+}
+
+int		disp_block(t_ls_file *file)
+{
+	int	ans;
+
+	ans = 0;
+	while (file)
+	{
+		ans += file->filestat.st_blocks;
+		file = file->next;
+	}
+	return (ans);
+}
+//In addition, for each directory whose contents are displayed, the total number of 512-byte
+//blocks used by the files in the directory is displayed on a line by itself, immediately before the information for the files in
+//the directory.
 void	long_display(t_ls_file *file)
 {
 	int		col_hl;
@@ -124,6 +145,8 @@ void	long_display(t_ls_file *file)
 	col_owner = com_owner(file);
 	col_group = com_group(file);
 	col_size = com_size(file);
+	ft_printf("total %d\n", disp_block(file));
+	//disp_mode_content_size(file);
 	while (file)
 	{
 		disp_mode_type(file->filestat.st_mode);
@@ -139,7 +162,10 @@ void	long_display(t_ls_file *file)
 		ft_printf("%*d ", col_size, file->filestat.st_size);
 		ft_printf("%.7s%.5s ", ctime(&file->filestat.st_mtime) + 4,
 					disp_time(file->filestat.st_mtime));
-		ft_putendl(file->dp.d_name);
+		ft_printf("%s", file->dp.d_name);
+		if (S_ISLNK(file->filestat.st_mode))
+			disp_link_target(file->path);
+		write(1, "\n", 1);
 		file = file->next;
 	}
 }

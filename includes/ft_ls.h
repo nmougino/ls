@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 06:38:46 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/09 09:29:14 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 # define FT_LS
 
 # include "libft.h"
-# include <dirent.h>
 # include <time.h>
+# include <dirent.h>
 # include <sys/stat.h>
-# include <errno.h>
 # include <sys/types.h>
+# include <errno.h>
 # include <pwd.h>
-# include <uuid/uuid.h>
 # include <grp.h>
+# include <uuid/uuid.h>
 
 typedef struct dirent	t_dirent;
 

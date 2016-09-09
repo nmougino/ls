@@ -1,7 +1,8 @@
 # ls
 Projet pedagogique
 
-Rappel :: il n'y a pas de gestion d'erreur d'opendir
+bonus implementes::
+-n
 
 Attention erreur::
 Dans le cas de -R les options suplementaires de tri ne s'appliquent

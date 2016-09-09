@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 06:43:06 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 06:00:02 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/09 06:35:19 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,20 @@ int	com_group(t_ls_file *file)
 			ans = (ans < ft_strlen(tmp->gr_name)) ? ft_strlen(tmp->gr_name) : ans;
 		else
 			ans = (ans < (size_t)ft_nbrlen(file->filestat.st_gid)) ? ft_nbrlen(file->filestat.st_gid) : ans;
+		file = file->next;
+	}
+	return (ans);
+}
+
+int	com_size(t_ls_file *file)
+{
+	int	ans;
+
+	ans = 0;
+	while (file)
+	{
+		if (ans < ft_nbrlen(file->filestat.st_size))
+			ans = ft_nbrlen(file->filestat.st_size);
 		file = file->next;
 	}
 	return (ans);

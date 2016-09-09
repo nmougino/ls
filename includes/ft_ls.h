@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 06:00:23 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/09 06:38:46 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ int						com_name(t_ls_file *file);
 int						com_hl(t_ls_file *file);
 int						com_owner(t_ls_file *file);
 int						com_group(t_ls_file *file);
+int						com_size(t_ls_file *file);
 
 #endif

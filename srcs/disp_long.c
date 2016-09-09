@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 04:08:02 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 06:01:12 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/09 09:22:48 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,17 +99,31 @@ char	*disp_group(gid_t gid)
 		return (ft_strdup(tmp->gr_name));
 }
 
+#include <stdio.h>
+
+char	*disp_time(time_t tmp)
+{
+	double	timediff;
+
+	timediff = time(NULL) - tmp;
+	if ((timediff > 15778800) || (timediff < -15778800))
+		return (ctime(&tmp) + 19);
+	return (ctime(&tmp) + 11);
+}
+//Mon Nov 16 15:51:07 2015
 
 void	long_display(t_ls_file *file)
 {
 	int		col_hl;
 	int		col_owner;
 	int		col_group;
+	int		col_size;
 	char	*tmp;
 
 	col_hl = com_hl(file);
 	col_owner = com_owner(file);
 	col_group = com_group(file);
+	col_size = com_size(file);
 	while (file)
 	{
 		disp_mode_type(file->filestat.st_mode);
@@ -117,11 +131,14 @@ void	long_display(t_ls_file *file)
 		disp_mode_group(file->filestat.st_mode);
 		disp_mode_other(file->filestat.st_mode);
 		disp_acl();
-		ft_printf("%*d %-*s ", col_hl, file->filestat.st_nlink,
+		ft_printf("%*d %-*s  ", col_hl, file->filestat.st_nlink,
 			col_owner, tmp = disp_owner(file->filestat.st_uid));
 		free(tmp);
 		ft_printf("%-*s  ", col_group, tmp = disp_group(file->filestat.st_gid));
 		free(tmp);
+		ft_printf("%*d ", col_size, file->filestat.st_size);
+		ft_printf("%.7s%.5s ", ctime(&file->filestat.st_mtime) + 4,
+					disp_time(file->filestat.st_mtime));
 		ft_putendl(file->dp.d_name);
 		file = file->next;
 	}

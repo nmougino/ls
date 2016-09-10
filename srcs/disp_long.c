@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 04:08:02 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 20:52:37 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/10 16:56:47 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ void	long_display(t_ls_file *file, char param)
 		com_major(file), com_minor(file),
 		ft_max(com_size(file), col[3] + col[4] + 2)};
 
-	ft_printf("total %d\n", disp_block(file));
+	if (file && file->dp.d_namlen)
+		ft_printf("total %d\n", disp_block(file));
 	while (file)
 	{
 		disp_mode(file->filestat.st_mode);

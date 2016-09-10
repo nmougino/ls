@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 20:54:40 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/10 16:39:34 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,15 @@
 # include <pwd.h>
 # include <grp.h>
 # include <uuid/uuid.h>
+# include <stdio.h>
 
 typedef struct dirent	t_dirent;
+
+typedef struct			s_ls_arg
+{
+	char				*path;
+	struct s_ls_arg		*next;
+}						t_ls_arg;
 
 typedef struct			s_ls_file
 {
@@ -61,7 +68,9 @@ void					long_display(t_ls_file *file, char param);
 
 void					free_meta(t_ls_meta *meta);
 void					free_file(t_ls_file *fst);
+void					free_arg(t_ls_arg *fst);
 
+void					ls_add_file(char const *path, t_dirent *dp, t_ls_file **file, t_ls_meta *meta);
 t_ls_file				*ls_list_dir(char const *path, t_ls_meta *meta);
 
 void					ls_std(t_ls_meta *meta, const char *path);

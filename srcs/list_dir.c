@@ -6,11 +6,24 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/02 00:18:50 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 11:04:38 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/10 16:55:09 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+void				ls_array_cpy(char d_name[], char *tpath)
+{
+	int	i;
+
+	i = 0;
+	while (tpath[i] && i < 1023)
+	{
+		d_name[i] = tpath[i];
+		++i;
+	}
+	d_name[i] = '\0';
+}
 
 static t_ls_file	*ls_new_file(char const *path, t_dirent *dp)
 {
@@ -18,11 +31,17 @@ static t_ls_file	*ls_new_file(char const *path, t_dirent *dp)
 	char		*tpath;
 
 	new = (t_ls_file*)malloc(sizeof(t_ls_file));
-	tpath = add_path(path, dp->d_name);
+	tpath = dp ? add_path(path, dp->d_name) : ft_strdup(path);
 	if (new && (lstat(tpath, &new->filestat) >= 0))
 	{
 		new->next = NULL;
-		ft_memcpy(&new->dp, dp, sizeof(t_dirent));
+		if (dp)
+			ft_memcpy(&new->dp, dp, sizeof(t_dirent));
+		else
+		{
+			new->dp.d_namlen = 0;
+			ls_array_cpy(new->dp.d_name, tpath);
+		}
 		new->path = tpath;
 	}
 	else
@@ -30,7 +49,7 @@ static t_ls_file	*ls_new_file(char const *path, t_dirent *dp)
 	return (new);
 }
 
-static void			ls_add_file(char const *path, t_dirent *dp,
+void				ls_add_file(char const *path, t_dirent *dp,
 		t_ls_file **file, t_ls_meta *meta)
 {
 	t_ls_file *new;

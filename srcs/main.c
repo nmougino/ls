@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 17:25:05 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/10 18:01:35 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/10 23:03:23 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	disp_arg(t_ls_file *fil, t_ls_file *dir, t_ls_meta *meta, int ac)
 	if (fil)
 		display(fil, meta);
 	cur = dir;
-	if (cur)
+	if (fil && cur)
 		write(1, "\n", 1);
 	while (cur)
 	{

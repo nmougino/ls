@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 06:43:06 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/10 18:22:11 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/10 23:26:51 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,5 @@ int	com_size(t_ls_file *file)
 			ans = ft_nbrlen(file->filestat.st_size);
 		file = file->next;
 	}
-	return (ans);
+	return (ans < 2 ? 2 : ans);
 }

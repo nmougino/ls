@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 04:08:02 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/10 16:56:47 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/10 18:20:24 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void	disp_size_mm(t_ls_file *file, int *col)
 void	long_display(t_ls_file *file, char param)
 {
 	char		*tmp;
-	const int	col[6] = {com_hl(file), com_owner(file, param), com_group(file, param),
-		com_major(file), com_minor(file),
+	const int	col[6] = {com_hl(file), com_owner(file, param),
+		com_group(file, param), com_major(file), com_minor(file),
 		ft_max(com_size(file), col[3] + col[4] + 2)};
 
 	if (file && file->dp.d_namlen)

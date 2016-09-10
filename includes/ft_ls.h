@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/10 18:04:10 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/10 18:23:01 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void					long_display(t_ls_file *file, char param);
 
 void					free_meta(t_ls_meta *meta);
 void					free_file(t_ls_file *fst);
-void					free_arg(t_ls_arg *fst);
 
 void					ls_add_file(char const *path, t_dirent *dp, t_ls_file **file, t_ls_meta *meta);
 t_ls_file				*ls_list_dir(char const *path, t_ls_meta *meta);

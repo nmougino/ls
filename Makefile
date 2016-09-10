@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/07 23:21:20 by nmougino          #+#    #+#              #
-#    Updated: 2016/09/09 11:21:34 by nmougino         ###   ########.fr        #
+#    Updated: 2016/09/10 18:22:45 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ OBJDIR =	objs
 
 #	Liste des sources
 SRC =		compute.c \
+			compute_mm.c \
 			display.c \
 			disp_details.c \
 			disp_mode.c \

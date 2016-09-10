@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 06:43:06 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 20:54:26 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/10 18:22:11 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,47 +93,6 @@ int	com_size(t_ls_file *file)
 	{
 		if (ans < ft_nbrlen(file->filestat.st_size))
 			ans = ft_nbrlen(file->filestat.st_size);
-		file = file->next;
-	}
-	return (ans);
-}
-
-int	com_major(t_ls_file *file)
-{
-	int			ans;
-	int			tmp;
-
-	ans = 0;
-	while (file)
-	{
-		if (S_ISBLK(file->filestat.st_mode) || S_ISCHR(file->filestat.st_mode))
-		{
-			tmp = file->filestat.st_rdev;
-			while ((tmp / 256) > 0)
-				tmp /= 256;
-			if (ans < ft_nbrlen(tmp))
-				ans = ft_nbrlen(tmp);
-		}
-		file = file->next;
-	}
-	return (ans);
-}
-
-int	com_minor(t_ls_file *file)
-{
-	int			ans;
-	int			tmp;
-
-	ans = 0;
-	while (file)
-	{
-		if (S_ISBLK(file->filestat.st_mode) || S_ISCHR(file->filestat.st_mode))
-		{
-			tmp = file->filestat.st_rdev;
-			tmp %= 256;
-			if (ans < ft_nbrlen(tmp))
-				ans = ft_nbrlen(tmp);
-		}
 		file = file->next;
 	}
 	return (ans);

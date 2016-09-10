@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 17:25:05 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/10 17:39:18 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/10 18:01:35 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,15 @@
 void	disp_arg(t_ls_file *fil, t_ls_file *dir, t_ls_meta *meta, int ac)
 {
 	t_ls_file	*cur;
-	int			a;
 
 	if (fil)
-	{
 		display(fil, meta);
-		write(1, "\n", 1);
-	}
 	cur = dir;
-	a = (cur->next) ? 1 : 0;
+	if (cur)
+		write(1, "\n", 1);
 	while (cur)
 	{
-		if (a || fil || ac > 1)
+		if (ac > 1)
 		{
 			ft_putstr(cur->path);
 			write(1, ":\n", 2);

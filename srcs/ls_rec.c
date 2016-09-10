@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 01:28:58 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 03:57:54 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/10 23:57:21 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ void		ls_rec(t_ls_meta *meta, const char *path)
 		free_file(list);
 	}
 	else
-		ft_printf("ls: %s: %s\n", path, strerror(errno));
+		ft_printf("ft_ls: %s: %s\n", path, strerror(errno));
 }

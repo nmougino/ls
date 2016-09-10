@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 17:25:05 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/10 23:03:23 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/10 23:37:07 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,6 @@ void	disp_arg(t_ls_file *fil, t_ls_file *dir, t_ls_meta *meta, int ac)
 		cur->next ? write(1, "\n", 1) : 0;
 		cur = cur->next;
 	}
-}
-
-void	arg_error(char *name)
-{
-	ft_printf("ft_ls: %s: ", name);
-	perror(NULL);
 }
 
 int		main(int ac, char **av)

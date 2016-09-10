@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/10 18:23:01 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/10 23:37:29 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ typedef struct			s_ls_meta
 	int					(*sortfun)(t_ls_file *, t_ls_file *);
 }						t_ls_meta;
 
+void					arg_error(char *name);
 int						error_w_param(char c);
+
 int						parser(int ac, char **av, t_ls_meta *meta);
 
 void					display(t_ls_file *file, t_ls_meta *meta);

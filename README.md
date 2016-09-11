@@ -5,7 +5,7 @@ Educational project
 
 -a      Include directory entries whose names begin with a dot (.).
 
--l      (The lowercase letter ``ell''.)  List in long format.  (See below.)  If the output is
+-l      (The lowercase letter "ell".)  List in long format.  (See below.)  If the output is
 		to a terminal, a total sum for all the file sizes is output on a line before the long
 		listing.
 
@@ -21,10 +21,10 @@ Educational project
 
 High speed
 
--F      Display a slash (`/') immediately after each pathname that is a directory, an asterisk
-		(`*') after each that is executable, an at sign (`@') after each symbolic link, an
-		equals sign (`=') after each socket, a percent sign (`%') after each whiteout, and a
-		vertical bar (`|') after each that is a FIFO.
+-F      Display a slash / immediately after each pathname that is a directory, an asterisk
+		\* after each that is executable, an at sign @ after each symbolic link, an
+		equals sign = after each socket, a percent sign % after each whiteout, and a
+		vertical bar | after each that is a FIFO.
 
 -f      Output is not sorted.  This option turns on the -a option.
 

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/12 00:01:04 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/12 00:25:34 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct			s_ls_file
 	int					error;
 	struct s_ls_file	*next;
 }						t_ls_file;
+
+typedef int (*sortptr)(t_ls_file *, t_ls_file *);
 
 typedef struct			s_ls_meta
 {

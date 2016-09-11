@@ -6,30 +6,20 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:27:59 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/12 00:00:21 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/12 00:22:08 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void	parser_init_sort(t_ls_meta *meta)
+static sortptr	parser_init_sort(char param)
 {
-	if (meta->param & (1 << 7))
-		meta->sortfun = &sort_no;
-	else if (meta->param & (1 << 1))
-	{
-		if (meta->param & 1)
-			meta->sortfun = &sort_rev_time;
-		else
-			meta->sortfun = &sort_rev_alpha;
-	}
+	if (param & (1 << 7))
+		return (&sort_no);
+	else if (param & 1)
+		return ((param & (1 << 1)) ? &sort_rev_time : &sort_time);
 	else
-	{
-		if (meta->param & 1)
-			meta->sortfun = &sort_time;
-		else
-			meta->sortfun = &sort_alpha;
-	}
+		return ((param & (1 << 1)) ? &sort_rev_alpha : &sort_alpha);
 }
 
 static void	parser_init_empty(t_ls_meta *meta)
@@ -39,7 +29,7 @@ static void	parser_init_empty(t_ls_meta *meta)
 	(meta->target)[0] = ft_strnew(2);
 	(meta->target)[0][0] = '.';
 	(meta->target)[0][1] = 0;
-	parser_init_sort(meta);
+	meta->sortfun = parser_init_sort(meta->param);
 }
 
 static int	parser_add_param(t_ls_meta *meta, char *arg)
@@ -95,7 +85,7 @@ int			parser(int ac, char **av, t_ls_meta *meta)
 			parser_init_empty(meta);
 		else
 			parser_init_target(meta, av, i, ac);
-		parser_init_sort(meta);
+		meta->sortfun = parser_init_sort(meta->param);
 	}
 	return (1);
 }

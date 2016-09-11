@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:27:59 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/11 23:35:42 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/12 00:00:21 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 static void	parser_init_sort(t_ls_meta *meta)
 {
-	if (meta->param & (1 << 1))
+	if (meta->param & (1 << 7))
+		meta->sortfun = &sort_no;
+	else if (meta->param & (1 << 1))
 	{
 		if (meta->param & 1)
 			meta->sortfun = &sort_rev_time;
@@ -49,9 +51,9 @@ static int	parser_add_param(t_ls_meta *meta, char *arg)
 		return (0);
 	while (arg[++i])
 	{
-		if (ft_strnloc(arg[i], "trlaRnF", 7) < 0)
+		if (ft_strnloc(arg[i], "trlaRnFf", 8) < 0)
 			return (error_w_param(arg[i]));
-		meta->param |= 1 << ft_strnloc(arg[i], "trlaRnF", 7);
+		meta->param |= 1 << ft_strnloc(arg[i], "trlaRnFf", 8);
 	}
 	return (1);
 }

@@ -6,11 +6,17 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 02:47:06 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 01:29:05 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/12 00:00:47 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+int	sort_no(t_ls_file *a, t_ls_file *b)
+{
+	a = b;
+	return (1);
+}
 
 int	sort_alpha(t_ls_file *a, t_ls_file *b)
 {

@@ -3,10 +3,7 @@ Projet pedagogique
 
 bonus implementes::
 -n
-
-Attention erreur::
-Dans le cas de -R les options suplementaires de tri ne s'appliquent
-qu'a la lecture des dossiers pas de leur contenu.
+grande vitesse
 
 Idee de bonus:
 -F      Display a slash (`/') immediately after each pathname that is a

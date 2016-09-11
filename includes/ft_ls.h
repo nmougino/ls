@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/11 20:42:24 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/11 23:35:37 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct			s_ls_meta
 {
 	int					tarnb;
 	char				**target;
-	//					-- nRalrt
+	//					-- FnRalrt
 	char				param;
 	int					(*sortfun)(t_ls_file *, t_ls_file *);
 }						t_ls_meta;
@@ -62,6 +62,7 @@ char					*disp_owner(uid_t uid, char param);
 char					*disp_group(gid_t gid, char param);
 char					*disp_time(time_t tmp);
 void					disp_link_target(char *path);
+void					disp_mf(mode_t mode);
 
 void					long_display(t_ls_file **file, char param);
 

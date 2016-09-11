@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 11:20:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 20:48:11 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/11 23:33:47 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,18 @@ void	disp_link_target(char *path)
 	ft_bzero(buf, 1024);
 	readlink(path, buf, 1024);
 	ft_printf(" -> %s", buf);
+}
+
+void	disp_mf(mode_t mode)
+{
+	if (S_ISLNK(mode))
+		write(1, "@", 1);
+	else if (S_ISDIR(mode))
+		write(1, "/", 1);
+	else if (S_ISFIFO(mode))
+		write(1, "|", 1);
+	else if (S_ISSOCK(mode))
+		write(1, "=", 1);
+	else if (mode & S_IXUSR || mode & S_IXGRP || mode & S_IXOTH)
+		write(1, "*", 1);
 }

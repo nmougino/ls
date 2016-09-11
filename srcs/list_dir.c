@@ -6,18 +6,11 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/02 00:18:50 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/11 18:49:36 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/11 21:39:43 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-/*
-	AAAAh quand un fichier est permission denied, son ouverture par lstat est impossible et il faut l'afficher.
-	Cependant il est possible de voir son nom via le dirent
-	test contenu:
-	/sgoinfre/goinfre/Perso/Students/aloeung/debian/appListCache
-*/
 
 void				ls_array_cpy(char d_name[], char *tpath)
 {

@@ -6,13 +6,13 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 04:08:02 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/11 20:48:25 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/11 21:54:55 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		disp_block(t_ls_file *file)
+int			disp_block(t_ls_file *file)
 {
 	int	ans;
 
@@ -25,7 +25,7 @@ int		disp_block(t_ls_file *file)
 	return (ans);
 }
 
-void	disp_mode(mode_t mode)
+void		disp_mode(mode_t mode)
 {
 	disp_mode_type(mode);
 	disp_mode_owner(mode);
@@ -34,10 +34,10 @@ void	disp_mode(mode_t mode)
 	write(1, " ", 1);
 }
 
-void	disp_size_mm(t_ls_file *file, int *col)
+void		disp_size_mm(t_ls_file *file, int *col)
 {
-	int			major;
-	int			minor;
+	int	major;
+	int	minor;
 
 	if (S_ISBLK(file->filestat.st_mode) || S_ISCHR(file->filestat.st_mode))
 	{
@@ -81,7 +81,7 @@ static void	disp_loop(t_ls_file *file, char param)
 	}
 }
 
-void	long_display(t_ls_file **file, char param)
+void		long_display(t_ls_file **file, char param)
 {
 	check_perm(file);
 	disp_loop(*file, param);

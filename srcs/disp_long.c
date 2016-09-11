@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 04:08:02 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/11 20:41:54 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/11 20:48:25 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	disp_size_mm(t_ls_file *file, int *col)
 		ft_printf("%*d, %*d ", col[3], major, col[4], minor);
 	}
 	else
-		ft_printf("%*d ", col[5], file->filestat.st_size);
+		ft_printf("%*ld ", col[5], file->filestat.st_size);
 }
 
 static void	disp_loop(t_ls_file *file, char param)

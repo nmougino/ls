@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:27:59 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 20:46:34 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/11 21:30:18 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int			parser(int ac, char **av, t_ls_meta *meta)
 	else
 	{
 		meta->param = 0;
-		while (++i < ac && av[i][0] == '-')
+		while (++i < ac && av[i][0] == '-' && av[i][1])
 		{
 			if (parser_add_param(meta, av[i]) < 0)
 				return (0);

@@ -6,18 +6,20 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:27:59 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/12 00:22:08 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/12 00:50:19 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static sortptr	parser_init_sort(char param)
+static t_sortptr	parser_init_sort(int param)
 {
 	if (param & (1 << 7))
 		return (&sort_no);
 	else if (param & 1)
 		return ((param & (1 << 1)) ? &sort_rev_time : &sort_time);
+	else if (param & (1 << 7))
+		return ((param & (1 << 1)) ? &sort_rev_last_access : &sort_last_access);
 	else
 		return ((param & (1 << 1)) ? &sort_rev_alpha : &sort_alpha);
 }
@@ -41,9 +43,9 @@ static int	parser_add_param(t_ls_meta *meta, char *arg)
 		return (0);
 	while (arg[++i])
 	{
-		if (ft_strnloc(arg[i], "trlaRnFf", 8) < 0)
+		if (ft_strnloc(arg[i], "trlaRnFfu", 9) < 0)
 			return (error_w_param(arg[i]));
-		meta->param |= 1 << ft_strnloc(arg[i], "trlaRnFf", 8);
+		meta->param |= 1 << ft_strnloc(arg[i], "trlaRnFfu", 9);
 	}
 	return (1);
 }

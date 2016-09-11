@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 04:08:02 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/11 23:37:02 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/12 00:43:03 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void		disp_size_mm(t_ls_file *file, int *col)
 		ft_printf("%*ld ", col[5], file->filestat.st_size);
 }
 
-static void	disp_loop(t_ls_file *file, char param)
+static void	disp_loop(t_ls_file *file, int param)
 {
 	char		*tmp;
 	const int	col[6] = {com_hl(file), com_owner(file, param),
@@ -81,7 +81,7 @@ static void	disp_loop(t_ls_file *file, char param)
 	}
 }
 
-void		long_display(t_ls_file **file, char param)
+void		long_display(t_ls_file **file, int param)
 {
 	check_perm(file);
 	disp_loop(*file, param);

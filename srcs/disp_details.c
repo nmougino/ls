@@ -12,7 +12,7 @@
 
 #include "ft_ls.h"
 
-char	*disp_owner(uid_t uid, char param)
+char	*disp_owner(uid_t uid, int param)
 {
 	struct passwd	*tmp;
 
@@ -22,7 +22,7 @@ char	*disp_owner(uid_t uid, char param)
 		return (ft_strdup(tmp->pw_name));
 }
 
-char	*disp_group(gid_t gid, char param)
+char	*disp_group(gid_t gid, int param)
 {
 	struct group	*tmp;
 

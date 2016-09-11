@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 02:47:06 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/12 00:46:59 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/12 01:13:06 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,23 @@ int	sort_last_access(t_ls_file *a, t_ls_file *b)
 	{
 		ta = a->filestat.st_atimespec.tv_nsec;
 		tb = b->filestat.st_atimespec.tv_nsec;
+		if (ta == tb)
+			return (sort_alpha(a, b));
+	}
+	return ((ta - tb) > 0 ? 1 : 0);
+}
+
+int	sort_birth(t_ls_file *a, t_ls_file *b)
+{
+	long	ta;
+	long	tb;
+
+	ta = a->filestat.st_birthtime;
+	tb = b->filestat.st_birthtime;
+	if (ta == tb)
+	{
+		ta = a->filestat.st_birthtimespec.tv_nsec;
+		tb = b->filestat.st_birthtimespec.tv_nsec;
 		if (ta == tb)
 			return (sort_alpha(a, b));
 	}

@@ -33,3 +33,10 @@ Educational project
 
 * -u : Use time of last access, instead of last modification of the file for sorting (-t) or
 		long printing (-l).
+
+* -U : Use time of file creation, instead of last modification for sorting (-t) or long output
+		(-l).
+
+#### Details:
+
+Instead of using -t in addition of -u and -U to use them, ./ft_ls can directly use -u and -U to sort files without have to put -t.

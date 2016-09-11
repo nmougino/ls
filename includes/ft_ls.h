@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/12 00:50:41 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/12 01:15:20 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct			s_ls_meta
 {
 	int					tarnb;
 	char				**target;
-	//					-- fFnRalrt
+	//					-- UufFnRalrt
 	int					param;
 	t_sortptr			sortfun;
 }						t_ls_meta;
@@ -81,10 +81,12 @@ int						sort_no(t_ls_file *a, t_ls_file *b);
 int						sort_alpha(t_ls_file *a, t_ls_file *b);
 int						sort_time(t_ls_file *a, t_ls_file *b);
 int						sort_last_access(t_ls_file *a, t_ls_file *b);
+int						sort_birth(t_ls_file *a, t_ls_file *b);
 
 int						sort_rev_alpha(t_ls_file *a, t_ls_file *b);
 int						sort_rev_time(t_ls_file *a, t_ls_file *b);
 int						sort_rev_last_access(t_ls_file *a, t_ls_file *b);
+int						sort_rev_birth(t_ls_file *a, t_ls_file *b);
 
 int						usefull(const char *path);
 char					*add_path(const char *path, const char *new);

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 11:16:50 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/09 11:17:20 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/11 23:31:42 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ void	disp_mode_other(mode_t mode)
 {
 	write(1, (mode & S_IROTH) ? "r" : "-", 1);
 	write(1, (mode & S_IWOTH) ? "w" : "-", 1);
-	if (mode & S_IXGRP && mode & S_ISVTX)
+	if (mode & S_IXOTH && mode & S_ISVTX)
 		write(1, "t", 1);
-	else if (mode & S_IXGRP)
+	else if (mode & S_IXOTH)
 		write(1, "x", 1);
 	else if (mode & S_ISVTX)
 		write(1, "T", 1);

@@ -2,7 +2,7 @@
 Projet pedagogique
 
 bonus implementes::
--n -F
+-n -F -f
 grande vitesse
 
 Idee de bonus:

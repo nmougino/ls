@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/10 23:37:29 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/11 20:42:24 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct			s_ls_file
 	char				*path;
 	struct stat 		filestat;
 	t_dirent			dp;
+	int					error;
 	struct s_ls_file	*next;
 }						t_ls_file;
 
@@ -46,9 +47,11 @@ typedef struct			s_ls_meta
 void					arg_error(char *name);
 int						error_w_param(char c);
 
+void					check_perm(t_ls_file **fst);
+
 int						parser(int ac, char **av, t_ls_meta *meta);
 
-void					display(t_ls_file *file, t_ls_meta *meta);
+void					display(t_ls_file **file, t_ls_meta *meta);
 
 void					disp_mode_type(mode_t mode);
 void					disp_mode_owner(mode_t mode);
@@ -60,7 +63,7 @@ char					*disp_group(gid_t gid, char param);
 char					*disp_time(time_t tmp);
 void					disp_link_target(char *path);
 
-void					long_display(t_ls_file *file, char param);
+void					long_display(t_ls_file **file, char param);
 
 void					free_meta(t_ls_meta *meta);
 void					free_file(t_ls_file *fst);

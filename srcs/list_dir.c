@@ -6,11 +6,18 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/02 00:18:50 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/11 00:03:03 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/11 18:49:36 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+/*
+	AAAAh quand un fichier est permission denied, son ouverture par lstat est impossible et il faut l'afficher.
+	Cependant il est possible de voir son nom via le dirent
+	test contenu:
+	/sgoinfre/goinfre/Perso/Students/aloeung/debian/appListCache
+*/
 
 void				ls_array_cpy(char d_name[], char *tpath)
 {
@@ -30,22 +37,22 @@ static t_ls_file	*ls_new_file(char const *path, t_dirent *dp)
 	t_ls_file	*new;
 	char		*tpath;
 
-	new = (t_ls_file*)malloc(sizeof(t_ls_file));
+	if (!(new = (t_ls_file*)malloc(sizeof(t_ls_file))))
+		return (NULL);
 	tpath = dp ? add_path(path, dp->d_name) : ft_strdup(path);
-	if (new && (lstat(tpath, &new->filestat) >= 0))
-	{
-		new->next = NULL;
-		if (dp)
-			ft_memcpy(&new->dp, dp, sizeof(t_dirent));
-		else
-		{
-			new->dp.d_namlen = 0;
-			ls_array_cpy(new->dp.d_name, tpath);
-		}
-		new->path = tpath;
-	}
+	if (lstat(tpath, &new->filestat) >= 0)
+		new->error = 0;
 	else
-		free(tpath);
+		new->error = errno;
+	if (dp)
+		ft_memcpy(&new->dp, dp, sizeof(t_dirent));
+	else
+	{
+		new->dp.d_namlen = 0;
+		ls_array_cpy(new->dp.d_name, tpath);
+	}
+	new->path = tpath;
+	new->next = NULL;
 	return (new);
 }
 

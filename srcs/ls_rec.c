@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 01:28:58 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/10 23:57:21 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/11 20:42:44 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void		ls_rec(t_ls_meta *meta, const char *path)
 	if ((list = ls_list_dir(path, meta)))
 	{
 		cur = list;
-		display(list, meta);
+		display(&list, meta);
 		while (cur)
 		{
 			if (S_ISDIR(cur->filestat.st_mode) && usefull(cur->path))
@@ -32,7 +32,8 @@ void		ls_rec(t_ls_meta *meta, const char *path)
 			}
 			cur = cur->next;
 		}
-		free_file(list);
+		if (list)
+			free_file(list);
 	}
 	else
 		ft_printf("ft_ls: %s: %s\n", path, strerror(errno));

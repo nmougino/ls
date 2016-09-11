@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/31 02:02:37 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/10 23:37:10 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/11 22:01:12 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		error_w_param(char c)
 {
-	ft_printf("ft_ls: illegal option -- %c\nusage: ft_ls [-Ralrt] [file ...]\n"
+	ft_printf("ft_ls: illegal option -- %c\nusage: ft_ls [-Ralnrt] [file ...]\n"
 		, c);
 	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 04:08:02 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/12 00:43:03 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/12 01:39:43 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ static void	disp_loop(t_ls_file *file, int param)
 		ft_printf("%.7s%.5s %s", ctime(&file->filestat.st_mtime) + 4,
 			disp_time(file->filestat.st_mtime), file->dp.d_name);
 		(param & (1 << 6)) ? disp_mf(file->filestat.st_mode) : 0;
-		if (S_ISLNK(file->filestat.st_mode))
-			disp_link_target(file->path);
+		(param & (1 << 10)) ? disp_p(file->filestat.st_mode, param) : 0;
+		(S_ISLNK(file->filestat.st_mode)) ? disp_link_target(file->path) : 0;
 		write(1, "\n", 1);
 		file = file->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/01 23:36:13 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/12 00:29:25 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/12 01:40:23 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	display(t_ls_file **file, t_ls_meta *meta)
 		{
 			ft_putstr(tmp->dp.d_name);
 			(meta->param & (1 << 6)) ? disp_mf(tmp->filestat.st_mode) : 0;
+			(meta->param & (1 << 10)) ?
+				disp_p(tmp->filestat.st_mode, meta->param) : 0;
 			write(1, "\n", 1);
 			tmp = tmp->next;
 		}

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/12 01:15:20 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/12 01:38:00 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct			s_ls_meta
 {
 	int					tarnb;
 	char				**target;
-	//					-- UufFnRalrt
+	//					-- pUufFnRalrt
 	int					param;
 	t_sortptr			sortfun;
 }						t_ls_meta;
@@ -59,6 +59,7 @@ void					disp_mode_type(mode_t mode);
 void					disp_mode_owner(mode_t mode);
 void					disp_mode_group(mode_t mode);
 void					disp_mode_other(mode_t mode);
+void					disp_p(mode_t mode, int param);
 
 char					*disp_owner(uid_t uid, int param);
 char					*disp_group(gid_t gid, int param);

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 11:16:50 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/11 23:31:42 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/12 01:40:32 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,10 @@ void	disp_mode_other(mode_t mode)
 		write(1, "T", 1);
 	else
 		write(1, "-", 1);
+}
+
+void	disp_p(mode_t mode, int param)
+{
+	if ((!(param & (1 << 6))) && S_ISDIR(mode))
+		write(1, "/", 1);
 }

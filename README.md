@@ -31,6 +31,8 @@ Educational project
 * -n : Display user and group IDs numerically, rather than converting to a user or group name
 		in a long (-l) output.  This option turns on the -l option.
 
+* -p : Write a slash (/) after each filename if that file is a directory.
+
 * -u : Use time of last access, instead of last modification of the file for sorting (-t) or
 		long printing (-l).
 

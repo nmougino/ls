@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/12 00:36:45 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/12 01:14:50 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/12 04:37:29 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,9 @@ int	sort_rev_last_access(t_ls_file *a, t_ls_file *b)
 int	sort_rev_birth(t_ls_file *a, t_ls_file *b)
 {
 	return (!sort_birth(a, b));
+}
+
+int	sort_rev_lstatchg(t_ls_file *a, t_ls_file *b)
+{
+	return (!sort_lstatchg(a, b));
 }

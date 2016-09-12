@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/07 23:21:20 by nmougino          #+#    #+#              #
-#    Updated: 2016/09/12 00:39:42 by nmougino         ###   ########.fr        #
+#    Updated: 2016/09/12 04:38:03 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC =		check_perm.c \
 			path_dep.c \
 			disp_long.c \
 			sort_fun_rev.c \
+			sort_fun2.c \
 			sort_fun.c
 LIB =		ft
 OBJ =		$(SRC:.c=.o)

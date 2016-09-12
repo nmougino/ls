@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/07 23:21:20 by nmougino          #+#    #+#              #
-#    Updated: 2016/09/11 18:49:55 by nmougino         ###   ########.fr        #
+#    Updated: 2016/09/12 05:17:29 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,11 @@ OBJDIR =	objs
 SRC =		check_perm.c \
 			compute.c \
 			compute_mm.c \
-			display.c \
+			disp_attr.c \
 			disp_details.c \
+			disp_long.c \
 			disp_mode.c \
+			display.c \
 			error.c \
 			free_dep.c \
 			list_dir.c \
@@ -42,7 +44,8 @@ SRC =		check_perm.c \
 			main.c \
 			parser.c \
 			path_dep.c \
-			disp_long.c \
+			sort_fun_rev.c \
+			sort_fun2.c \
 			sort_fun.c
 LIB =		ft
 OBJ =		$(SRC:.c=.o)

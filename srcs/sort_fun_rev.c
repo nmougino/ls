@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   sort_fun_rev.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/31 02:02:37 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/12 23:04:16 by nmougino         ###   ########.fr       */
+/*   Created: 2016/09/12 00:36:45 by nmougino          #+#    #+#             */
+/*   Updated: 2016/09/12 04:37:29 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		error_w_param(char c)
+int	sort_rev_alpha(t_ls_file *a, t_ls_file *b)
 {
-	ft_dprintf(2, "ft_ls: illegal option -- %c\n%s\n", c,
-		"usage: ft_ls [-FRUacflnprtu] [file ...]");
-	return (-1);
+	return (!sort_alpha(a, b));
 }
 
-void	arg_error(char *name)
+int	sort_rev_time(t_ls_file *a, t_ls_file *b)
 {
-	ft_dprintf(2, "ft_ls: %s: ", name);
-	perror(NULL);
+	return (!sort_time(a, b));
+}
+
+int	sort_rev_last_access(t_ls_file *a, t_ls_file *b)
+{
+	return (!sort_last_access(a, b));
+}
+
+int	sort_rev_birth(t_ls_file *a, t_ls_file *b)
+{
+	return (!sort_birth(a, b));
+}
+
+int	sort_rev_lstatchg(t_ls_file *a, t_ls_file *b)
+{
+	return (!sort_lstatchg(a, b));
 }

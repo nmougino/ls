@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:27:59 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/12 04:32:51 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/13 01:40:26 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,14 @@ static t_sortptr	parser_init_sort(int param)
 static void	parser_init_empty(t_ls_meta *meta)
 {
 	meta->tarnb = 1;
-	meta->target = (char **)malloc(sizeof(char *));
-	(meta->target)[0] = ft_strnew(2);
-	(meta->target)[0][0] = '.';
-	(meta->target)[0][1] = 0;
+	if ((meta->target = (char **)malloc(sizeof(char *)) &&
+		((meta->target)[0] = ft_strnew(2)))
+		{
+			(meta->target)[0][0] = '.';
+			(meta->target)[0][1] = 0;
+		}
+	else
+		meta->tarnb = 0;
 	meta->sortfun = parser_init_sort(meta->param);
 }
 
@@ -60,13 +64,17 @@ static void	parser_init_target(t_ls_meta *meta, char **av, int i, int ac)
 
 	c = 0;
 	meta->tarnb = ac - i;
-	meta->target = (char **)malloc(sizeof(char *) * ac - i);
-	while (i < ac)
+	if ((meta->target = (char **)malloc(sizeof(char *) * ac - i))
 	{
-		meta->target[c] = ft_strdup(av[i]);
-		++c;
-		++i;
+		while (i < ac)
+		{
+			meta->target[c] = ft_strdup(av[i]);
+			++c;
+			++i;
+		}
 	}
+	else
+		meta->tarnb = 0;
 }
 
 int			parser(int ac, char **av, t_ls_meta *meta)

@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/12 04:37:38 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/12 05:55:12 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <grp.h>
 # include <uuid/uuid.h>
 # include <stdio.h>
+# include <sys/xattr.h>
 
 typedef struct dirent	t_dirent;
 
@@ -54,6 +55,9 @@ void					check_perm(t_ls_file **fst);
 int						parser(int ac, char **av, t_ls_meta *meta);
 
 void					display(t_ls_file **file, t_ls_meta *meta);
+
+int						com_acl(t_ls_file *file);
+void					disp_acl(char *path, int col);
 
 void					disp_mode_type(mode_t mode);
 void					disp_mode_owner(mode_t mode);

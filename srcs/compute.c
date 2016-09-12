@@ -46,7 +46,7 @@ int	com_hl(t_ls_file *file)
 	return (ans);
 }
 
-int	com_owner(t_ls_file *file, char param)
+int	com_owner(t_ls_file *file, int param)
 {
 	size_t			ans;
 	struct passwd	*tmp;
@@ -65,7 +65,7 @@ int	com_owner(t_ls_file *file, char param)
 	return (ans);
 }
 
-int	com_group(t_ls_file *file, char param)
+int	com_group(t_ls_file *file, int param)
 {
 	size_t			ans;
 	struct group	*tmp;

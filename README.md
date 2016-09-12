@@ -21,6 +21,8 @@ Educational project
 
 * High speed
 
+* -c : Use time when file status was last changed for sorting (-t) or long printing (-l).
+
 * -F : Display a slash / immediately after each pathname that is a directory, an asterisk
 		\* after each that is executable, an at sign @ after each symbolic link, an
 		equals sign = after each socket, a percent sign % after each whiteout, and a

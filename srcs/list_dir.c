@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/02 00:18:50 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/11 21:39:43 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/13 01:42:06 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,23 @@ void				ls_add_file(char const *path, t_dirent *dp,
 	t_ls_file *new;
 	t_ls_file *cur;
 
-	new = ls_new_file(path, dp);
-	if (!*file)
-		*file = new;
-	else if (meta->sortfun(new, *file))
+	if ((new = ls_new_file(path, dp)))
 	{
-		new->next = *file;
-		*file = new;
-	}
-	else
-	{
-		cur = *file;
-		while (cur->next && meta->sortfun(cur->next, new))
-			cur = cur->next;
-		new->next = cur->next;
-		cur->next = new;
+		if (!*file)
+			*file = new;
+		else if (meta->sortfun(new, *file))
+		{
+			new->next = *file;
+			*file = new;
+		}
+		else
+		{
+			cur = *file;
+			while (cur->next && meta->sortfun(cur->next, new))
+				cur = cur->next;
+			new->next = cur->next;
+			cur->next = new;
+		}
 	}
 }
 

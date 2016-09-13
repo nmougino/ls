@@ -6,12 +6,12 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/12 05:55:12 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/13 02:54:15 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LS
-# define FT_LS
+#ifndef FT_LS_H
+# define FT_LS_H
 
 # include "libft.h"
 # include <time.h>
@@ -30,19 +30,23 @@ typedef struct dirent	t_dirent;
 typedef struct			s_ls_file
 {
 	char				*path;
-	struct stat 		filestat;
+	struct stat			filestat;
 	t_dirent			dp;
 	int					error;
 	struct s_ls_file	*next;
 }						t_ls_file;
 
-typedef int (*t_sortptr)(t_ls_file *, t_ls_file *);
+typedef int				(*t_sortptr)(t_ls_file *, t_ls_file *);
+
+/*
+**	param bit map
+** -- cpUufFnRalrt
+*/
 
 typedef struct			s_ls_meta
 {
 	int					tarnb;
 	char				**target;
-	//					-- cpUufFnRalrt
 	int					param;
 	t_sortptr			sortfun;
 }						t_ls_meta;
@@ -76,7 +80,8 @@ void					long_display(t_ls_file **file, int param);
 void					free_meta(t_ls_meta *meta);
 void					free_file(t_ls_file *fst);
 
-void					ls_add_file(char const *path, t_dirent *dp, t_ls_file **file, t_ls_meta *meta);
+void					ls_add_file(char const *path, t_dirent *dp,
+						t_ls_file **file, t_ls_meta *meta);
 t_ls_file				*ls_list_dir(char const *path, t_ls_meta *meta);
 
 void					ls_std(t_ls_meta *meta, const char *path);

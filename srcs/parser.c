@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:27:59 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/13 02:41:29 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/13 02:50:26 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static t_sortptr	parser_init_sort(int param)
 		return ((param & (1 << 1)) ? &sort_rev_alpha : &sort_alpha);
 }
 
-static void	parser_init_empty(t_ls_meta *meta)
+static void			parser_init_empty(t_ls_meta *meta)
 {
 	meta->tarnb = 1;
 	if ((meta->target = (char **)malloc(sizeof(char *))) &&
@@ -42,7 +42,7 @@ static void	parser_init_empty(t_ls_meta *meta)
 	meta->sortfun = parser_init_sort(meta->param);
 }
 
-static int	parser_add_param(t_ls_meta *meta, char *arg)
+static int			parser_add_param(t_ls_meta *meta, char *arg)
 {
 	register int	i;
 
@@ -58,7 +58,7 @@ static int	parser_add_param(t_ls_meta *meta, char *arg)
 	return (1);
 }
 
-static void	parser_init_target(t_ls_meta *meta, char **av, int i, int ac)
+static void			parser_init_target(t_ls_meta *meta, char **av, int i, int ac)
 {
 	register int	c;
 
@@ -77,7 +77,7 @@ static void	parser_init_target(t_ls_meta *meta, char **av, int i, int ac)
 		meta->tarnb = 0;
 }
 
-int			parser(int ac, char **av, t_ls_meta *meta)
+int					parser(int ac, char **av, t_ls_meta *meta)
 {
 	register int	i;
 

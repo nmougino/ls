@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 04:08:02 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/14 13:26:07 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/14 13:28:11 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	disp_loop(t_ls_file *file, int param, int *col)
 void		long_display(t_ls_file **ptr, int param)
 {
 	t_ls_file	*file;
-	const int	col[7] = {com_hl(*ptr), com_owner(*ptr, param),
+	const int	col[6] = {com_hl(*ptr), com_owner(*ptr, param),
 		com_group(*ptr, param), com_major(*ptr), com_minor(*ptr),
 		ft_max(com_size(*ptr), col[3] + col[4] + 2)};
 

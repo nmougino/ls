@@ -6,7 +6,7 @@
 #    By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/07 23:21:20 by nmougino          #+#    #+#              #
-#    Updated: 2016/09/13 02:47:33 by nmougino         ###   ########.fr        #
+#    Updated: 2016/09/14 13:08:51 by nmougino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ endef
 #	RULES
 #
 
-.PHONY = default glu all re $(OBJDIR) $(NAME) deplib clean fclean
+.PHONY = default glu all re libcomp $(OBJDIR) $(NAME) clean fclean
 
 #	Main rules
 default:

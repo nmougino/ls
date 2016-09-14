@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:27:59 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/13 07:02:59 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/14 21:12:01 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ static t_sortptr	parser_init_sort(int param)
 {
 	if (param & (1 << 7))
 		return (&sort_no);
+	else if ((param & 1) && param & (1 << 8))
+		return ((param & (1 << 1)) ? &sort_rev_last_access : &sort_last_access);
+	else if ((param & 1) && param & (1 << 9))
+		return ((param & (1 << 1)) ? &sort_rev_birth : &sort_birth);
+	else if ((param & 1) && param & (1 << 11))
+		return ((param & (1 << 1)) ? &sort_rev_lstatchg : &sort_lstatchg);
 	else if (param & 1)
 		return ((param & (1 << 1)) ? &sort_rev_time : &sort_time);
-	else if (param & (1 << 8))
-		return ((param & (1 << 1)) ? &sort_rev_last_access : &sort_last_access);
-	else if (param & (1 << 9))
-		return ((param & (1 << 1)) ? &sort_rev_birth : &sort_birth);
-	else if (param & (1 << 11))
-		return ((param & (1 << 1)) ? &sort_rev_lstatchg : &sort_lstatchg);
 	else
 		return ((param & (1 << 1)) ? &sort_rev_alpha : &sort_alpha);
 }

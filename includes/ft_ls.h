@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 19:28:49 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/13 02:54:15 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/14 13:26:21 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ int						parser(int ac, char **av, t_ls_meta *meta);
 
 void					display(t_ls_file **file, t_ls_meta *meta);
 
-int						com_acl(t_ls_file *file);
-void					disp_acl(char *path, int col);
+void					disp_acl(char *path);
 
 void					disp_mode_type(mode_t mode);
 void					disp_mode_owner(mode_t mode);

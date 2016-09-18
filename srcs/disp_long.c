@@ -6,7 +6,7 @@
 /*   By: nmougino <nmougino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/09 04:08:02 by nmougino          #+#    #+#             */
-/*   Updated: 2016/09/14 13:28:11 by nmougino         ###   ########.fr       */
+/*   Updated: 2016/09/18 23:49:56 by nmougino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,12 @@ void		disp_mode(mode_t mode)
 
 void		disp_size_mm(t_ls_file *file, int *col)
 {
-	int	major;
-	int	minor;
+	int	tmp;
 
 	if (S_ISBLK(file->filestat.st_mode) || S_ISCHR(file->filestat.st_mode))
 	{
-		major = file->filestat.st_rdev;
-		minor = file->filestat.st_rdev;
-		while ((major / 256) > 0)
-			major /= 256;
-		minor = minor % 256;
-		ft_printf("%*d, %*d ", col[3], major, col[4], minor);
+		tmp = file->filestat.st_rdev;
+		ft_printf("%*d, %*d ", col[3], (tmp >> 24) & 0xFF, col[4], tmp & 0xFF);
 	}
 	else
 		ft_printf("%*ld ", col[5], file->filestat.st_size);
